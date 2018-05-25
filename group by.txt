@@ -1,0 +1,65 @@
+group by makes of row of similer data by summeriseing 
+
+select title,author_lname from books group by author_lname;
+
++-----------------------------------------------------+----------------+
+| title                                               | author_lname   |
++-----------------------------------------------------+----------------+
+| The Namesake                                        | Lahiri         |
+| Norse Mythology                                     | Gaiman         |
+| A Hologram for the King: A Novel                    | Eggers         |
+| The Amazing Adventures of Kavalier & Clay           | Chabon         |
+| Just Kids                                           | Smith          |
+| What We Talk About When We Talk About Love: Stories | Carver         |
+| White Noise                                         | DeLillo        |
+| Cannery Row                                         | Steinbeck      |
+| Oblivion: Stories                                   | Foster Wallace |
+| 10% Happier                                         | Harris         |
+| Lincoln In The Bardo                                | Saunders       |
++-----------------------------------------------------+----------------+
+11 rows in set (0.00 sec)
+
+groups data on based of lname if sheeraz is author  of 2 books
+itll show the first books bname 
+but group will have 2 books in the row 
+------------------------------------------------------------------------------------
+count how many books each author have written??
+
+Select author_lname,count(*) from books group by author_lname,author_fname;
+
+count(*) => its counting how many things are there in each authors rows 
+
+------------------------------------------------------------------------------------
+
+select author_lname,authr_fname, count(*) from books group by author_lname;
+
++--------------+----------------+----------+
+| author_fname | author_lname   | count(*) |
++--------------+----------------+----------+
+| Jhumpa       | Lahiri         |        2 |
+| Neil         | Gaiman         |        3 |
+| Dave         | Eggers         |        3 |
+| Michael      | Chabon         |        1 |
+| Patti        | Smith          |        1 |
+| Raymond      | Carver         |        2 |
+| Don          | DeLillo        |        1 |
+| John         | Steinbeck      |        1 |
+| David        | Foster Wallace |        2 |
+| Dan          | Harris         |        2 |
+| George       | Saunders       |        1 |
++--------------+----------------+----------+
+11 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------
+
+select concat( 'in ',released_year,' ',count(*),' book(s)') as year from books order by released_year;
+
++--------------------+
+| year               |
++--------------------+
+| in 2003 19 book(s) |
++--------------------+
+1 row in set (0.00 sec)
+
+
+
